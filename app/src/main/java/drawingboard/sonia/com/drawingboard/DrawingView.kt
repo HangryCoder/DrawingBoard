@@ -8,7 +8,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 
-
+const val DEFAULT_SQUARE_LENGTH = 200f
 class DrawingView : View {
 
     private var xDown = 0f
@@ -16,9 +16,9 @@ class DrawingView : View {
     /**
      * Setting minimum length as 200f
      * */
-    var squareLength = 200.0f
+    var squareLength = DEFAULT_SQUARE_LENGTH
         set(value) {
-            if (value >= squareLength) {
+            if (value >= DEFAULT_SQUARE_LENGTH) {
                 field = value
             }
         }
