@@ -16,10 +16,9 @@ class DrawingView : View {
     var width = 200.0f
     var height = 200.0f
     var strokeWidth = 10.0f
-
+    private var squareList = ArrayList<Square>()
     private lateinit var mPaint: Paint
-
-    var touched = false
+    private var touched = false
 
     constructor(context: Context) : super(context) {
         init(context)
@@ -43,18 +42,20 @@ class DrawingView : View {
     override fun onDraw(canvas: Canvas) {
         canvas.drawColor(Color.TRANSPARENT)
         if (touched) {
-            canvas.drawRect(xDown, yDown, xDown + width, yDown + height, mPaint)
+            for (square in squareList) {
+                canvas.drawRect(square.topLeft, square.topRight, square.bottomLeft, square.bottomRight, mPaint)
+                // canvas.drawRect(xDown, yDown, xDown + width, yDown + height, mPaint)
+            }
         }
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-
         touched = true
-
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 xDown = event.x
                 yDown = event.y
+                squareList.add(Square(xDown, yDown, xDown + width, yDown + width))
             }
             MotionEvent.ACTION_UP -> {
             }
