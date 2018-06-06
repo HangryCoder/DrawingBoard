@@ -55,7 +55,9 @@ class DrawingView : View {
             MotionEvent.ACTION_DOWN -> {
                 xDown = event.x
                 yDown = event.y
-                squareList.add(Square(xDown, yDown, xDown + squareLength, yDown + squareLength))
+                squareList.add(Square(topLeft = xDown, topRight = yDown,
+                        bottomLeft = xDown + squareLength, bottomRight = yDown + squareLength,
+                        squareLength = squareLength))
             }
             MotionEvent.ACTION_UP -> {
             }
