@@ -2,6 +2,8 @@ package drawingboard.sonia.com.drawingboard
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.SeekBar
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,5 +29,19 @@ class MainActivity : AppCompatActivity() {
                 drawingView.squareLength = DEFAULT_SQUARE_LENGTH + progress
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when {
+            item?.itemId == R.id.done -> {
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

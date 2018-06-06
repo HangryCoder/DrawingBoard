@@ -51,6 +51,7 @@ class DrawingView : View {
         if (touched) {
             for (square in squareList) {
                 canvas.drawRect(square.topLeft, square.topRight, square.bottomLeft, square.bottomRight, mPaint)
+
             }
         }
     }
