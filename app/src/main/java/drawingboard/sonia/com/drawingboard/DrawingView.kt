@@ -9,21 +9,14 @@ import android.util.AttributeSet
 import android.view.View
 
 const val DEFAULT_SQUARE_LENGTH = 200f
+
 class DrawingView : View {
 
     private var xDown = 0f
     private var yDown = 0f
-    /**
-     * Setting minimum length as 200f
-     * */
     var squareLength = DEFAULT_SQUARE_LENGTH
-        set(value) {
-            if (value >= DEFAULT_SQUARE_LENGTH) {
-                field = value
-            }
-        }
     private val strokeWidth = 10.0f
-    private var squareList = ArrayList<Square>()
+    var squareList = ArrayList<Square>()
     private lateinit var mPaint: Paint
     private var touched = false
 
