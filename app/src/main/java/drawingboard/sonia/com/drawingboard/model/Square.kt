@@ -1,4 +1,4 @@
-package drawingboard.sonia.com.drawingboard
+package drawingboard.sonia.com.drawingboard.model
 
 data class Square(val topLeft: Float, val topRight: Float, val bottomLeft: Float, val bottomRight: Float,
                   val squareLength: Float) {

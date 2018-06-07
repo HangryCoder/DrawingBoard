@@ -1,4 +1,4 @@
-package drawingboard.sonia.com.drawingboard
+package drawingboard.sonia.com.drawingboard.customview
 
 import android.content.Context
 import android.view.MotionEvent
@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
+import drawingboard.sonia.com.drawingboard.model.Square
 
 const val DEFAULT_SQUARE_LENGTH = 200f
 

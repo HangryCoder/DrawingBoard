@@ -1,4 +1,4 @@
-package drawingboard.sonia.com.drawingboard
+package drawingboard.sonia.com.drawingboard.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.SeekBar
+import drawingboard.sonia.com.drawingboard.R
+import drawingboard.sonia.com.drawingboard.customview.DEFAULT_SQUARE_LENGTH
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
