@@ -19,7 +19,7 @@ class DrawingView : View {
     private val strokeWidth = 10.0f
     var squareList = ArrayList<Square>()
     private lateinit var mPaint: Paint
-    private var touched = false
+    var touched = false
 
     constructor(context: Context) : super(context) {
         init(context)

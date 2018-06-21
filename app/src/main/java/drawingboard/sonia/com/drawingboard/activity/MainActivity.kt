@@ -1,16 +1,21 @@
 package drawingboard.sonia.com.drawingboard.activity
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.SeekBar
 import drawingboard.sonia.com.drawingboard.R
 import drawingboard.sonia.com.drawingboard.customview.DEFAULT_SQUARE_LENGTH
+import drawingboard.sonia.com.drawingboard.model.Square
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private val INTENT_SQUARES = "Squares"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +38,21 @@ class MainActivity : AppCompatActivity() {
                 drawingView.squareLength = DEFAULT_SQUARE_LENGTH + progress
             }
         })
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val squareList = savedInstanceState?.getParcelableArrayList<Square>(INTENT_SQUARES)
+        drawingView.squareList = squareList ?: arrayListOf()
+        drawingView.touched = true
+        drawingView.invalidate()
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        val squareList = drawingView.squareList
+        outState?.putParcelableArrayList(INTENT_SQUARES, squareList)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
